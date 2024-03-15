@@ -6,6 +6,10 @@ It is useful for use cases like:
 - you have a `CODE_OF_CONDUCT.md` or `CONTRIBUTING.md` file that you want to have in the same form in all the repositories. You want to edit it in one repo and then have the change replicated in other repositories
 - you have a file that has to be removed from multiple repositories
 
+## This fork changes
+
+This fork commits directly to the default branch instead of using a PR, as our use case assumes these files are never updated in individual repos except via this workflow.
+
 ## Some breaking changes
 
 If you used `Copy Files to Other Repositories` action before it became `Manage Files in Multiple Repositories` the only breaking change that you need to be aware of, except new features, is that now this action is also able to pick up deletions. In other words, imagine a situation where `patterns_to_include` has value `./github/workflows/another_file.yml`. The new version of action not only will pick up modifications of `another_file.yml` but also if you remove that file, this action will pick that info up and also remove the file in other repositories that have it, respecting `destination` field.
